@@ -34,7 +34,7 @@ sf_options = {
     "sfDatabase": "test",
     "sfSchema": "PUBLIC",
     "sfWarehouse": "COMPUTE_WH",
-    "dbtable": "target_table_Ag2802_68"
+    "dbtable": "target_table_Ag2802_108"
 }
 
 # --- Write to Snowflake ---
