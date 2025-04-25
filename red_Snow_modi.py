@@ -2,19 +2,12 @@ from pyspark.sql import SparkSession
 spark = SparkSession.builder \
     .appName("RedshiftToSnowflake_Migration") \
     .config("spark.jars", 
-    "https://raw.githubusercontent.com/Aji-sudo/spark_repo/main/redshift-jdbc42-2.1.0.32.jar,"
-    "https://raw.githubusercontent.com/Aji-sudo/spark_repo/main/spark-snowflake_2.12-2.11.0-spark_3.2.jar,"
-    "https://raw.githubusercontent.com/Aji-sudo/spark_repo/main/jackson-databind-2.12.3.jar,"
-    "https://raw.githubusercontent.com/Aji-sudo/spark_repo/main/jackson-core-2.12.3.jar,"
-    "https://raw.githubusercontent.com/Aji-sudo/spark_repo/main/jackson-annotations-2.12.3.jar"
-    )\
-    .config("spark.driver.extraJavaOptions", 
-        "--add-exports java.base/sun.nio.ch=ALL-UNNAMED " +
-        "--add-exports java.base/sun.util.calendar=ALL-UNNAMED") \
-    .config("spark.executor.extraJavaOptions", 
-        "--add-exports java.base/sun.nio.ch=ALL-UNNAMED " +
-        "--add-exports java.base/sun.util.calendar=ALL-UNNAMED") \
-    .getOrCreate()
+        "https://raw.githubusercontent.com/Aji-sudo/spark_repo/main/redshift-jdbc42-2.1.0.32.jar,"
+        "https://raw.githubusercontent.com/Aji-sudo/spark_repo/main/spark-snowflake_2.12-2.11.0-spark_3.2.jar,"
+        "https://raw.githubusercontent.com/Aji-sudo/spark_repo/main/jackson-databind-2.12.3.jar,"
+        "https://raw.githubusercontent.com/Aji-sudo/spark_repo/main/jackson-core-2.12.3.jar,"
+        "https://raw.githubusercontent.com/Aji-sudo/spark_repo/main/jackson-annotations-2.12.3.jar"
+    ) \
     .config("spark.driver.extraJavaOptions", 
         "--add-exports java.base/sun.nio.ch=ALL-UNNAMED " +
         "--add-exports java.base/sun.util.calendar=ALL-UNNAMED") \
@@ -45,7 +38,7 @@ sf_options = {
     "sfDatabase": "test",
     "sfSchema": "PUBLIC",
     "sfWarehouse": "COMPUTE_WH",
-    "dbtable": "target_table_Ag2802_108"
+    "dbtable": "target_table_Ag2802_156"
 }
 
 # --- Write to Snowflake ---
