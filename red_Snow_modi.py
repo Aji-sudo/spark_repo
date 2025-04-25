@@ -2,15 +2,16 @@ from pyspark.sql import SparkSession
 spark = SparkSession.builder \
     .appName("RedshiftToSnowflake_Migration") \
     .config("spark.jars.packages", 
-            "net.snowflake:spark-snowflake_2.12:2.11.0-spark_3.2,"
-            "com.amazon.redshift:redshift-jdbc42:2.1.0.15")\
+            "net.snowflake:spark-snowflake_2.12:2.11.0-spark_3.2") \
+    .config("spark.jars", 
+            "https://raw.githubusercontent.com/Aji-sudo/spark_repo/main/redshift-jdbc42-2.1.0.32.jar") \
     .config("spark.driver.extraJavaOptions", 
         "--add-exports java.base/sun.nio.ch=ALL-UNNAMED " +
         "--add-exports java.base/sun.util.calendar=ALL-UNNAMED") \
     .config("spark.executor.extraJavaOptions", 
         "--add-exports java.base/sun.nio.ch=ALL-UNNAMED " +
-        "--add-exports java.base/sun.util.calendar=ALL-UNNAMED")\
-     .getOrCreate()
+        "--add-exports java.base/sun.util.calendar=ALL-UNNAMED") \
+    .getOrCreate()
 
 redshift_url =  "jdbc:redshift://nabuswat-redshift-cluster-1.cj3dic2hrmrh.us-east-2.redshift.amazonaws.com:5439/nabuswat"
 redshift_options = {
