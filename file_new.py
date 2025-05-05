@@ -8,7 +8,8 @@ spark = SparkSession.builder \
 
 # Now you can use the `spark` session to interact with Spark
 # For example, read a CSV file
-df = spark.read.csv("C:/Users/AG2802/Downloads/employee_data.csv", header = True, inferSchema=True)
+df = spark.read.csv("https://raw.githubusercontent.com/Aji-sudo/spark_repo/main/employee_data.csv
+", header = True, inferSchema=True)
 schema = StructType([
     StructField("id",IntegerType(),True),
     StructField("name", StringType(), True),
