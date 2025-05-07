@@ -17,8 +17,8 @@ from pyspark.sql import SparkSession
 
 # Step 1: Initialize Spark session
 spark = SparkSession.builder \
-    .appName("S3 to Snowflake Data Move") \
-    .config("spark.jars.packages", "net.snowflake:spark-snowflake_2.12:3.1.1,net.snowflake:snowflake-jdbc:3.13.6") \
+    .appName("S3 to Snowflake") \
+    .config("spark.jars.packages", "net.snowflake:spark-snowflake_2.12:2.11.0-spark_3.2,net.snowflake:snowflake-jdbc:3.13.6") \
     .getOrCreate()
 
 # Step 2: Define S3 input and Snowflake output paths
@@ -50,3 +50,4 @@ df.write \
 
 # Step 6: Stop the Spark session
 spark.stop()
+
