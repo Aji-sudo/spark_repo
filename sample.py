@@ -39,12 +39,14 @@ sfOptions = {
 }
 
 # Step 5: Write data to Snowflake
+# Step 5: Write data to Snowflake
 df.write \
     .format("snowflake") \
     .options(**sfOptions) \
     .option("dbtable", output_table) \
-    .mode("overwrite") \ 
+    .mode("overwrite") \
     .save()
+
 
 # Step 6: Stop the Spark session
 spark.stop()
