@@ -32,7 +32,7 @@ df = spark.read.parquet(input_path)
 sfOptions = {
     "sfURL": "tn30041.europe-west2.gcp.snowflakecomputing.com",
     "sfUser": "ACME_ADMIN",
-    "sfPassword": "Ajitha_February@2003",  # 🔒 Don't hardcode in production!
+    "sfPassword": "Ajitha_February@2003",  
     "sfDatabase": "util_db",
     "sfSchema": "public",
     "sfWarehouse": "acme_wh"
@@ -43,7 +43,7 @@ df.write \
     .format("snowflake") \
     .options(**sfOptions) \
     .option("dbtable", output_table) \
-    .mode("overwrite") \  # Use "append" if you don't want to overwrite the data
+    .mode("overwrite") \ 
     .save()
 
 # Step 6: Stop the Spark session
